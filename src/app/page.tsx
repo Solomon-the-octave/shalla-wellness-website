@@ -1,65 +1,336 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+import Reveal from "@/components/Reveal";
+
+const heroImages = [
+  "/images/hero/DSC02256.jpg",
+  "/images/hero/DSC02354.jpg",
+  "/images/hero/DSC02363.jpg",
+  "/images/hero/DSC02368.jpg",
+  "/images/hero/DSC02378.jpg",
+];
+
+const galleryImages = [
+  "/images/gallery/DSC02430.jpg",
+  "/images/gallery/DSC02445.jpg",
+  "/images/gallery/DSC02454.jpg",
+  "/images/gallery/DSC02462.jpg",
+  "/images/gallery/DSC02477.jpg",
+  "/images/gallery/DSC02489.jpg",
+];
 
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroImages.length);
+    }, 5500);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <main className="bg-white text-slate-800">
+      {/* HERO */}
+      <section className="relative min-h-screen overflow-hidden">
+        {heroImages.map((image, index) => (
+          <div
+            key={image}
+            className={`absolute inset-0 transition-opacity duration-[1800ms] ease-in-out ${
+              index === currentSlide ? "opacity-100" : "opacity-0"
+            }`}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            <img
+              src={image}
+              alt="Shalla Wellness Center environment"
+              className="h-full w-full object-cover scale-105 animate-[slowZoom_9s_ease-in-out_infinite]"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+        ))}
+
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/35" />
+
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-6 py-28 md:px-10">
+          <Reveal direction="up">
+            <div className="max-w-3xl">
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-emerald-700">
+                Shalla Wellness Center
+              </p>
+
+              <h1 className="text-4xl font-bold leading-tight text-slate-900 transition-all duration-700 md:text-6xl">
+                Preventive healthcare for healthier, more productive lives.
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
+                Science-based, culturally adapted wellness solutions focused on
+                metabolic health, early detection, lifestyle change, and long-term
+                wellbeing.
+              </p>
+
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href="#assessment"
+                  className="rounded-full bg-emerald-700 px-7 py-3 text-center font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-emerald-800"
+                >
+                  Start Assessment
+                </a>
+
+                <a
+                  href="/services"
+                  className="rounded-full border border-emerald-700 px-7 py-3 text-center font-medium text-emerald-700 transition-all duration-300 hover:scale-105 hover:bg-emerald-50"
+                >
+                  Explore Programs
+                </a>
+              </div>
+            </div>
+          </Reveal>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* INTRO */}
+      <section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <Reveal direction="left">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+              Our approach
+            </p>
+
+            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+              Wellness that starts before illness begins.
+            </h2>
+
+            <p className="mt-6 text-lg leading-8 text-slate-700">
+              Shalla Wellness Center follows a preventive and root-cause approach
+              to health. We focus on early detection of metabolic risks,
+              lifestyle modification, nutrition-centered care, and sustainable
+              wellness practices.
+            </p>
+          </Reveal>
+
+          <Reveal direction="right">
+            <div className="overflow-hidden rounded-[2rem] shadow-xl">
+              <img
+                src="/images/gallery/DSC02430.jpg"
+                alt="Shalla Wellness consultation"
+                className="h-[420px] w-full object-cover transition-all duration-700 ease-out hover:scale-105"
+              />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE */}
+      <section className="px-6 py-24 md:px-10">
+        <div className="mx-auto max-w-7xl">
+          <Reveal direction="up" className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+              Why choose us
+            </p>
+            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+              Built around prevention, trust, and practical care.
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {[
+              ["Evidence-Based Programs", "Science-backed wellness solutions."],
+              [
+                "Preventive Health Approach",
+                "Helping reduce risks before they become chronic conditions.",
+              ],
+              [
+                "Personalized Guidance",
+                "Support tailored to individual, workplace, and community needs.",
+              ],
+              [
+                "Professional Expertise",
+                "Led by experienced public health and wellness specialists.",
+              ],
+              [
+                "Culturally Adapted",
+                "Rooted in African lifestyle, food culture, and daily realities.",
+              ],
+              [
+                "Metabolic Focus",
+                "Specialized support for lifestyle-related health conditions.",
+              ],
+            ].map(([title, text], index) => (
+              <Reveal key={title} direction="up" delay={index * 0.04}>
+                <div className="h-full rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl">
+                  <h3 className="text-xl font-bold text-emerald-700">
+                    {title}
+                  </h3>
+                  <p className="mt-4 leading-7 text-slate-600">{text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SERVICES PREVIEW */}
+      <section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
+        <div className="mx-auto max-w-7xl">
+          <Reveal direction="up" className="max-w-3xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+              Programs
+            </p>
+            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+              Preventive wellness programs for individuals, organizations, and
+              communities.
+            </h2>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            {[
+              "Corporate Wellness Programs",
+              "Wellness Assessment Programs",
+              "Health Education & Seminars",
+              "Community & Specialized Programs",
+            ].map((service, index) => (
+              <Reveal key={service} direction="up" delay={index * 0.05}>
+                <div className="h-full rounded-3xl bg-white p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl">
+                  <h3 className="text-2xl font-bold text-emerald-700">
+                    {service}
+                  </h3>
+                  <p className="mt-4 leading-7 text-slate-600">
+                    Practical, science-based wellness support designed to improve
+                    awareness, reduce health risks, and encourage healthier daily
+                    habits.
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GALLERY */}
+      <section className="px-6 py-24 md:px-10">
+        <div className="mx-auto max-w-7xl">
+          <Reveal direction="up" className="mb-12 max-w-3xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+              Our space
+            </p>
+            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+              A calm, professional environment designed for care.
+            </h2>
+          </Reveal>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {galleryImages.map((image, index) => (
+              <Reveal key={image} direction="up" delay={index * 0.04}>
+                <div className="overflow-hidden rounded-3xl shadow-sm">
+                  <img
+                    src={image}
+                    alt="Shalla Wellness Center space"
+                    className="h-72 w-full object-cover transition-all duration-700 ease-out hover:scale-110"
+                  />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FOUNDER */}
+      <section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <Reveal direction="left">
+            <div className="overflow-hidden rounded-[2rem] shadow-xl">
+              <img
+                src="/images/founder/DSC02882.jpg"
+                alt="Dr. Dawit Mengistu"
+                className="h-[520px] w-full object-cover object-top transition-all duration-700 ease-out hover:scale-105"
+              />
+            </div>
+          </Reveal>
+
+          <Reveal direction="right">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+              Leadership
+            </p>
+
+            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+              Dr. Dawit Mengistu
+            </h2>
+
+            <p className="mt-3 text-xl font-medium text-emerald-700">
+              Founder & CEO, Shalla Wellness Center
+            </p>
+
+            <p className="mt-6 text-lg leading-8 text-slate-700">
+              Consultant public health specialist, health researcher, and educator
+              dedicated to holistic lifestyle medicine. His work promotes
+              evidence-based lifestyle interventions to prevent and manage
+              non-communicable diseases including diabetes, hypertension,
+              cardiovascular conditions, obesity, and cancer.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* QR ASSESSMENT */}
+      <section id="assessment" className="px-6 py-24 md:px-10">
+        <Reveal direction="up">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 rounded-[2rem] border border-emerald-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-xl md:grid-cols-2 md:p-12">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+                Self-assessment
+              </p>
+
+              <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+                Start with a simple wellness check.
+              </h2>
+
+              <p className="mt-6 text-lg leading-8 text-slate-700">
+                Scan the QR code to access the self-assessment questionnaire and
+                take the first step toward understanding your wellness needs.
+              </p>
+            </div>
+
+            <div className="flex justify-center">
+              <img
+                src="/images/qr-code.jpg"
+                alt="Shalla Wellness self-assessment QR code"
+                className="w-full max-w-xs rounded-3xl border border-emerald-100 bg-white p-4 shadow-md transition-all duration-500 hover:scale-105"
+              />
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-emerald-800 px-6 py-20 text-white md:px-10">
+        <Reveal direction="up">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-3xl font-bold md:text-5xl">
+              Ready to begin your wellness journey?
+            </h2>
+            <p className="mt-5 text-lg leading-8 text-emerald-50">
+              Book an assessment, explore partnerships, or learn more about
+              Shalla Wellness Center’s preventive healthcare services.
+            </p>
+
+            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+              <a
+                href="/contact"
+                className="rounded-full bg-white px-7 py-3 font-medium text-emerald-800 transition-all duration-300 hover:scale-105 hover:bg-emerald-50"
+              >
+                Contact Us
+              </a>
+              <a
+                href="/services"
+                className="rounded-full border border-white px-7 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-white/10"
+              >
+                View Services
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+    </main>
   );
 }
