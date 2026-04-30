@@ -60,11 +60,12 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href="https://t.me/YOUR_TELEGRAM_LINK"
+                  href="https://t.me/Shallawell"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="rounded-full border border-emerald-700 px-6 py-3 text-center font-medium text-emerald-700 transition hover:bg-white"
                 >
-                  Message on Telegram
+                  Reach Out on Telegram
                 </a>
               </div>
             </div>
@@ -92,8 +93,8 @@ export default function ContactPage() {
               </h2>
 
               <p className="mt-4 leading-7 text-slate-600">
-                Use this option for appointment questions, partnership
-                inquiries, or detailed messages.
+                Use this option for appointment questions, partnership inquiries,
+                or detailed messages.
               </p>
 
               <form className="mt-8 space-y-4">
@@ -143,8 +144,9 @@ export default function ContactPage() {
               </div>
 
               <a
-                href="https://t.me/YOUR_TELEGRAM_LINK"
+                href="https://t.me/Shallawell"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="mt-10 rounded-full bg-white px-7 py-3 text-center font-medium text-emerald-800 transition hover:bg-emerald-50"
               >
                 Open Telegram

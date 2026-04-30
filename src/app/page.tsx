@@ -8,16 +8,21 @@ const heroImages = [
   "/images/hero/DSC02354.jpg",
   "/images/hero/DSC02363.jpg",
   "/images/hero/DSC02368.jpg",
-  "/images/hero/DSC02378.jpg",
 ];
 
 const galleryImages = [
   "/images/gallery/DSC02430.jpg",
   "/images/gallery/DSC02445.jpg",
   "/images/gallery/DSC02454.jpg",
-  "/images/gallery/DSC02462.jpg",
-  "/images/gallery/DSC02477.jpg",
-  "/images/gallery/DSC02489.jpg",
+];
+
+const partnerLogos = [
+  { name: "BBRF", image: "/images/partners/bbrf.png" },
+  { name: "BGI Ethiopia", image: "/images/partners/bgi.jpg" },
+  { name: "Haros Fitness", image: "/images/partners/haros.png" },
+  { name: "Puratos Ethiopia", image: "/images/partners/puratos.png" },
+  { name: "Ethio-Istanbul Hospital", image: "/images/partners/ethio-istanbul.png" },
+  { name: "World Food Programme", image: "/images/partners/wfp.png" },
 ];
 
 export default function Home() {
@@ -45,7 +50,7 @@ export default function Home() {
             <img
               src={image}
               alt="Shalla Wellness Center environment"
-              className="h-full w-full object-cover scale-105 animate-[slowZoom_9s_ease-in-out_infinite]"
+              className="h-full w-full scale-105 object-cover animate-[slowZoom_9s_ease-in-out_infinite]"
             />
           </div>
         ))}
@@ -59,7 +64,7 @@ export default function Home() {
                 Shalla Wellness Center
               </p>
 
-              <h1 className="text-4xl font-bold leading-tight text-slate-900 transition-all duration-700 md:text-6xl">
+              <h1 className="text-4xl font-bold leading-tight text-slate-900 md:text-6xl">
                 Preventive healthcare for healthier, more productive lives.
               </h1>
 
@@ -128,6 +133,7 @@ export default function Home() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
               Why choose us
             </p>
+
             <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
               Built around prevention, trust, and practical care.
             </h2>
@@ -136,26 +142,11 @@ export default function Home() {
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               ["Evidence-Based Programs", "Science-backed wellness solutions."],
-              [
-                "Preventive Health Approach",
-                "Helping reduce risks before they become chronic conditions.",
-              ],
-              [
-                "Personalized Guidance",
-                "Support tailored to individual, workplace, and community needs.",
-              ],
-              [
-                "Professional Expertise",
-                "Led by experienced public health and wellness specialists.",
-              ],
-              [
-                "Culturally Adapted",
-                "Rooted in African lifestyle, food culture, and daily realities.",
-              ],
-              [
-                "Metabolic Focus",
-                "Specialized support for lifestyle-related health conditions.",
-              ],
+              ["Preventive Health Approach", "Helping reduce risks before they become chronic conditions."],
+              ["Personalized Guidance", "Support tailored to individual, workplace, and community needs."],
+              ["Professional Expertise", "Led by experienced public health and wellness specialists."],
+              ["Culturally Adapted", "Rooted in African lifestyle, food culture, and daily realities."],
+              ["Metabolic Focus", "Specialized support for lifestyle-related health conditions."],
             ].map(([title, text], index) => (
               <Reveal key={title} direction="up" delay={index * 0.04}>
                 <div className="h-full rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl">
@@ -177,6 +168,7 @@ export default function Home() {
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
               Programs
             </p>
+
             <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
               Preventive wellness programs for individuals, organizations, and
               communities.
@@ -207,27 +199,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* GALLERY */}
+      {/* CLEAN GALLERY */}
       <section className="px-6 py-24 md:px-10">
         <div className="mx-auto max-w-7xl">
-          <Reveal direction="up" className="mb-12 max-w-3xl">
+          <Reveal direction="up" className="mx-auto mb-12 max-w-3xl text-center">
             <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
               Our space
             </p>
+
             <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
               A calm, professional environment designed for care.
             </h2>
+
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              A welcoming setting where preventive health, assessment, and
+              personalized wellness support come together.
+            </p>
           </Reveal>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {galleryImages.map((image, index) => (
-              <Reveal key={image} direction="up" delay={index * 0.04}>
-                <div className="overflow-hidden rounded-3xl shadow-sm">
+              <Reveal key={image} direction="up" delay={index * 0.06}>
+                <div className="group overflow-hidden rounded-[2rem] bg-white shadow-sm ring-1 ring-emerald-100">
                   <img
                     src={image}
-                    alt="Shalla Wellness Center space"
-                    className="h-72 w-full object-cover transition-all duration-700 ease-out hover:scale-110"
+                    alt="Shalla Wellness Center environment"
+                    className="h-72 w-full object-cover transition-all duration-700 ease-out group-hover:scale-105"
                   />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PARTNERS */}
+      <section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
+        <div className="mx-auto max-w-7xl">
+          <Reveal direction="up" className="mx-auto max-w-3xl text-center">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+              Trusted by organizations
+            </p>
+
+            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+              Brands and institutions we have worked with.
+            </h2>
+
+            <p className="mt-5 text-lg leading-8 text-slate-600">
+              Shalla Wellness Center has supported organizations across wellness,
+              food, healthcare, humanitarian, and community-focused spaces.
+            </p>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {partnerLogos.map((partner, index) => (
+              <Reveal key={partner.name} direction="up" delay={index * 0.04}>
+                <div className="flex h-full items-center gap-5 rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-xl">
+                  <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white ring-1 ring-emerald-100">
+                    <img
+                      src={partner.image}
+                      alt={partner.name}
+                      className="max-h-14 max-w-14 object-contain"
+                    />
+                  </div>
+
+                  <p className="font-semibold leading-6 text-slate-800">
+                    {partner.name}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -309,6 +347,7 @@ export default function Home() {
             <h2 className="text-3xl font-bold md:text-5xl">
               Ready to begin your wellness journey?
             </h2>
+
             <p className="mt-5 text-lg leading-8 text-emerald-50">
               Book an assessment, explore partnerships, or learn more about
               Shalla Wellness Center’s preventive healthcare services.
@@ -321,6 +360,7 @@ export default function Home() {
               >
                 Contact Us
               </a>
+
               <a
                 href="/services"
                 className="rounded-full border border-white px-7 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-white/10"
