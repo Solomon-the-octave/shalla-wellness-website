@@ -4,16 +4,16 @@ import { useEffect, useState } from "react";
 import Reveal from "@/components/Reveal";
 
 const heroImages = [
-  "/images/hero/DSC02256.jpg",
+  "/images/gallery/DSC02590.jpg",
   "/images/hero/DSC02354.jpg",
-  "/images/hero/DSC02363.jpg",
+  "/images/gallery/DSC02430.jpg",
   "/images/hero/DSC02368.jpg",
 ];
 
 const galleryImages = [
   "/images/gallery/DSC02430.jpg",
-  "/images/gallery/DSC02445.jpg",
-  "/images/gallery/DSC02454.jpg",
+  "/images/hero/DSC02363.jpg",
+  "/images/gallery/DSC02676.jpg",
 ];
 
 const partnerLogos = [
@@ -65,13 +65,13 @@ export default function Home() {
               </p>
 
               <h1 className="text-4xl font-bold leading-tight text-slate-900 md:text-6xl">
-                Preventive healthcare for healthier, more productive lives.
+                Preventive health for healthier, more productive lives.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
                 Science-based, culturally adapted wellness solutions focused on
-                metabolic health, early detection, lifestyle change, and long-term
-                wellbeing.
+                disease prevention, metabolic health, early detection, lifestyle
+                change, and long-term wellbeing.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -108,17 +108,17 @@ export default function Home() {
 
             <p className="mt-6 text-lg leading-8 text-slate-700">
               Shalla Wellness Center follows a preventive and root-cause approach
-              to health. We focus on early detection of metabolic risks,
-              lifestyle modification, nutrition-centered care, and sustainable
-              wellness practices.
+              to health. We focus on early detection of risk factors for
+              non-communicable diseases, practical lifestyle change, and long-term
+              wellness support.
             </p>
           </Reveal>
 
           <Reveal direction="right">
             <div className="overflow-hidden rounded-[2rem] shadow-xl">
               <img
-                src="/images/gallery/DSC02430.jpg"
-                alt="Shalla Wellness consultation"
+                src="/images/team/DSC02567.jpg"
+                alt="Shalla Wellness team"
                 className="h-[420px] w-full object-cover transition-all duration-700 ease-out hover:scale-105"
               />
             </div>
@@ -135,14 +135,14 @@ export default function Home() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
-              Built around prevention, trust, and practical care.
+              Built around trust, disease prevention, and practical care.
             </h2>
           </Reveal>
 
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               ["Evidence-Based Programs", "Science-backed wellness solutions."],
-              ["Preventive Health Approach", "Helping reduce risks before they become chronic conditions."],
+              ["Preventive Health Approach", "Helping prevent and reverse the risk factors for chronic diseases."],
               ["Personalized Guidance", "Support tailored to individual, workplace, and community needs."],
               ["Professional Expertise", "Led by experienced public health and wellness specialists."],
               ["Culturally Adapted", "Rooted in African lifestyle, food culture, and daily realities."],
@@ -242,12 +242,12 @@ export default function Home() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
-              Brands and institutions we have worked with.
+              Brands and institutions we have collaborated with.
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Shalla Wellness Center has supported organizations across wellness,
-              food, healthcare, humanitarian, and community-focused spaces.
+              Shalla Wellness Center has worked with trusted organizations across
+              health, wellness, food, humanitarian, and community-focused sectors.
             </p>
           </Reveal>
 
@@ -279,7 +279,7 @@ export default function Home() {
           <Reveal direction="left">
             <div className="overflow-hidden rounded-[2rem] shadow-xl">
               <img
-                src="/images/founder/DSC02882.jpg"
+                src="/images/founder/DSC02867.jpg"
                 alt="Dr. Dawit Mengistu"
                 className="h-[520px] w-full object-cover object-top transition-all duration-700 ease-out hover:scale-105"
               />
@@ -303,8 +303,7 @@ export default function Home() {
               Consultant public health specialist, health researcher, and educator
               dedicated to holistic lifestyle medicine. His work promotes
               evidence-based lifestyle interventions to prevent and manage
-              non-communicable diseases including diabetes, hypertension,
-              cardiovascular conditions, obesity, and cancer.
+              non-communicable diseases (NCDs).
             </p>
           </Reveal>
         </div>
@@ -350,7 +349,7 @@ export default function Home() {
 
             <p className="mt-5 text-lg leading-8 text-emerald-50">
               Book an assessment, explore partnerships, or learn more about
-              Shalla Wellness Center’s preventive healthcare services.
+              Shalla Wellness Center’s preventive health services.
             </p>
 
             <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">

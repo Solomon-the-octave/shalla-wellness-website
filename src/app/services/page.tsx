@@ -2,63 +2,63 @@ import Reveal from "@/components/Reveal";
 
 export default function ServicesPage() {
   const services = [
-    {
-      title: "Corporate Wellness Programs",
-      description:
-        "Workplace-focused wellness initiatives that support employee health, productivity, and long-term wellbeing.",
-      points: [
-        "Employee wellness screening",
-        "Metabolic health assessments",
-        "Lifestyle risk evaluation",
-        "Workplace wellness education",
-        "Stress prevention programs",
-        "Nutrition guidance",
-      ],
-      image: "/images/gallery/DSC02462.jpg",
-    },
-    {
-      title: "Wellness Assessment Programs",
-      description:
-        "Comprehensive assessments that help individuals understand their current health status, lifestyle risks, and wellness needs.",
-      points: [
-        "Vital signs monitoring",
-        "Body composition screening",
-        "Metabolic risk screening",
-        "Nutrition assessment",
-        "Lifestyle evaluation",
-        "Personalized recommendations",
-      ],
-      image: "/images/gallery/DSC02477.jpg",
-    },
-    {
-      title: "Health Education & Seminars",
-      description:
-        "Practical learning sessions that build awareness around prevention, nutrition, metabolic health, and sustainable wellbeing.",
-      points: [
-        "Metabolic health education",
-        "Nutrition and chronic disease prevention",
-        "Women’s health and hormonal wellness",
-        "Healthy pregnancy and maternal wellness",
-        "Gut health and immune support",
-        "Stress management and mental wellbeing",
-      ],
-      image: "/images/gallery/DSC02489.jpg",
-    },
-    {
-      title: "Community & Specialized Programs",
-      description:
-        "Outreach and specialized wellness programs designed to support communities, institutions, and vulnerable groups.",
-      points: [
-        "Community preventive health programs",
-        "Nursing home wellness support",
-        "Monthly health monitoring",
-        "Nutrition and supplement tracking",
-        "Staff wellness education",
-        "Targeted lifestyle support",
-      ],
-      image: "/images/gallery/DSC02585.jpg",
-    },
-  ];
+  {
+    title: "Corporate Wellness Programs",
+    description:
+      "Workplace-focused wellness initiatives that support employee health, productivity, and long-term wellbeing.",
+    points: [
+      "Employee wellness screening",
+      "Metabolic health assessments",
+      "Lifestyle risk evaluation",
+      "Workplace wellness education",
+      "Stress prevention programs",
+      "Nutrition and lifestyle guidance.",
+    ],
+     image: "/images/hero/DSC02716.jpg",
+  },
+  {
+    title: "Wellness Assessment Programs",
+    description:
+      "Comprehensive assessments that help individuals understand their current health status, lifestyle risks, and wellness needs.",
+    points: [
+      "Vital signs monitoring",
+      "Body composition analysis",
+      "Metabolic risk screening",
+      "Nutrition assessment",
+      "Lifestyle evaluation",
+      "Personalized recommendations",
+    ],
+    image: "/images/gallery/DSC02489.jpg",
+  },
+  {
+    title: "Health Education & Seminars",
+    description:
+      "Practical learning sessions that build awareness around prevention, nutrition, metabolic health, and sustainable wellbeing.",
+    points: [
+      "Metabolic health education",
+      "Nutrition and chronic disease prevention",
+      "Women’s health and hormonal wellness",
+      "Healthy pregnancy and maternal wellness",
+      "Gut health and immune support",
+      "Stress management and men’s Health",
+    ],
+    image: "/images/hero/DSC02378.jpg",
+  },
+  {
+    title: "Community & Specialized Programs",
+    description:
+      "Outreach and specialized wellness programs designed to support communities, institutions, and vulnerable groups.",
+    points: [
+      "Health awareness for community health center",
+      "Nursing home wellness support",
+      "Health fairs",
+      "Nutrition and supplement tracking",
+      "Corporate wellness program",
+      "Targeted lifestyle support",
+    ],
+    image: "/images/gallery/DSC02590.jpg",
+  },
+];
 
   return (
     <main className="bg-white text-slate-800">
@@ -75,8 +75,8 @@ export default function ServicesPage() {
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
               Shalla Wellness Center offers science-based, culturally adapted
-              programs focused on prevention, metabolic health, early detection,
-              nutrition, and sustainable lifestyle change.
+              programs focused on prevention, early detection, nutritional
+              therapy and disease reversal.
             </p>
           </Reveal>
         </div>

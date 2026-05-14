@@ -2,9 +2,9 @@ import Reveal from "@/components/Reveal";
 
 export default function AboutPage() {
   const pillars = [
-    ["01", "Early Detection", "Identifying metabolic risks before they become chronic conditions."],
-    ["02", "Lifestyle Modification", "Helping clients make practical and sustainable changes to daily habits."],
-    ["03", "Nutrition-Centered Care", "Providing food and lifestyle guidance adapted to African culture and everyday realities."],
+    ["01", "Early Detection", "Identifying disease risk factors before they become chronic conditions."],
+    ["02", "Lifestyle Modification", "Helping clients make practical and sustainable lifestyle changes."],
+    ["03", "Nutrition-Centered Care", "Providing nutrition and lifestyle guidance customized to each disease group."],
     ["04", "Sustainable Practices", "Building wellness routines that people can maintain long term."],
   ];
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
           <Reveal direction="right">
             <div className="overflow-hidden rounded-[2rem] shadow-xl">
               <img
-                src="/images/gallery/DSC02445.jpg"
+                src="/images/hero/DSC02368.jpg"
                 alt="Shalla Wellness Center environment"
                 className="h-[480px] w-full object-cover transition-all duration-700 ease-out hover:scale-105"
               />
@@ -80,7 +80,7 @@ export default function AboutPage() {
           <Reveal direction="left">
             <div className="overflow-hidden rounded-[2rem] shadow-xl">
               <img
-                src="/images/gallery/DSC02454.jpg"
+               src="/images/gallery/DSC02430.jpg"
                 alt="Wellness consultation"
                 className="h-[520px] w-full object-cover transition-all duration-700 ease-out hover:scale-105"
               />
@@ -97,17 +97,12 @@ export default function AboutPage() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              Shalla Wellness follows a preventive and root-cause approach to
-              health. Instead of waiting until illness becomes severe, the center
-              helps people identify risks early, understand their lifestyle
-              patterns, improve nutrition, and take realistic steps toward better
-              health.
+             At Shalla wellness we believe in root cause approach, early detection and disease reversal through personalized life style modification program.
+
             </p>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              This approach supports prevention and management of lifestyle-related
-              conditions such as diabetes, hypertension, obesity, cardiovascular
-              risks, and other non-communicable diseases.
+              This approach supports prevention management and reversal of most of the so called lifestyle diseases such as diabetes, hypertension, Obesity, cardiovascular risks, cancer, etc.....
             </p>
           </Reveal>
         </div>
@@ -150,15 +145,13 @@ export default function AboutPage() {
               </p>
 
               <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
-                Science-based support that still feels personal and practical.
+                Evidence-based support that still feels personal and practical.
               </h2>
 
               <p className="mt-6 text-lg leading-8 text-slate-600">
                 Shalla Wellness combines professional health expertise with
                 practical education, culturally relevant nutrition guidance, and
-                personalized wellness recommendations. The goal is not to create
-                complicated routines, but to help people make healthier choices
-                that fit their real lives.
+                personalized wellness recommendations. We use scientifically validated approach to improve health and wellbeing.
               </p>
             </div>
           </Reveal>

@@ -1,10 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+useEffect(() => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    setDarkMode(true);
+  }
+}, []);
+
+const toggleDarkMode = () => {
+  const nextMode = !darkMode;
+  setDarkMode(nextMode);
+
+  if (nextMode) {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+  }
+};
 
   const links = [
     { name: "Home", href: "/" },
@@ -33,7 +54,7 @@ export default function Navbar() {
               Shalla Wellness
             </p>
             <p className="text-sm text-gray-500">
-              Preventive Health & Metabolic Wellness
+              Preventive Health 
             </p>
           </div>
         </Link>
@@ -49,7 +70,8 @@ export default function Navbar() {
               {link.name}
             </Link>
           ))}
-
+          
+  
           <Link
             href="/#assessment"
             className="rounded-full bg-emerald-700 px-5 py-2 text-white transition hover:bg-emerald-800"
@@ -57,6 +79,15 @@ export default function Navbar() {
             Book Assessment
           </Link>
         </div>
+
+           <button
+  onClick={toggleDarkMode}
+  className="flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm font-semibold text-emerald-800 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-50 hover:shadow-md"
+>
+  <span>{darkMode ? "☀️" : "🌙"}</span>
+  <span>{darkMode ? "Light" : "Dark"}</span>
+</button>
+
 
         {/* MOBILE BUTTON */}
         <button
