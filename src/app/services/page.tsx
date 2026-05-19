@@ -28,7 +28,7 @@ export default function ServicesPage() {
       "Lifestyle evaluation",
       "Personalized recommendations",
     ],
-    image: "/images/gallery/DSC02489.jpg",
+    image: "/images/gallery/DSC02445.jpg"
   },
   {
     title: "Health Education & Seminars",

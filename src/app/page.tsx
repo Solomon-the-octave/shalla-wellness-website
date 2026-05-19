@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import Reveal from "@/components/Reveal";
 
 const heroImages = [
-  "/images/gallery/DSC02590.jpg",
-  "/images/hero/DSC02354.jpg",
-  "/images/gallery/DSC02430.jpg",
-  "/images/hero/DSC02368.jpg",
+  "/images/office/DSC02244.jpg",     // entrance / environment
+  "/images/gallery/DSC02445.jpg",    // smiling reception interaction
+  "/images/hero/DSC02378.jpg",       // consultation image
+  "/images/office/DSC02254.jpg",     // office space
+  "/images/gallery/DSC02590.jpg",    // wellness interaction
 ];
 
 const galleryImages = [
@@ -23,8 +24,13 @@ const partnerLogos = [
   { name: "Puratos Ethiopia", image: "/images/partners/puratos.png" },
   { name: "Ethio-Istanbul Hospital", image: "/images/partners/ethio-istanbul.png" },
   { name: "World Food Programme", image: "/images/partners/wfp.png" },
-];
 
+  // New partner
+  { 
+    name: "DOC Medical Center", 
+    image: "/images/partners/doc.png" 
+  },
+];
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -162,42 +168,57 @@ export default function Home() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
-        <div className="mx-auto max-w-7xl">
-          <Reveal direction="up" className="max-w-3xl">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              Programs
+<section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
+  <div className="mx-auto max-w-7xl">
+    <Reveal direction="up" className="max-w-3xl">
+      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+        Programs
+      </p>
+
+      <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+        Preventive wellness programs for individuals, organizations, and
+        communities.
+      </h2>
+    </Reveal>
+
+    <div className="mx-auto mt-14 grid max-w-7xl gap-6 md:grid-cols-2">
+      {[
+        {
+          title: "Corporate Wellness Programs",
+          description:
+            "Workplace wellness initiatives focused on improving employee health, productivity, stress management, and long-term wellbeing.",
+        },
+        {
+          title: "Wellness Assessment Programs",
+          description:
+            "Comprehensive health screenings and evaluations designed to identify risks and support healthier lifestyle choices.",
+        },
+        {
+          title: "Health Education & Seminars",
+          description:
+            "Interactive health education sessions that build awareness around nutrition, prevention, and sustainable healthy living.",
+        },
+        {
+          title: "Community & Specialized Programs",
+          description:
+            "Tailored wellness initiatives designed to support communities, organizations, and specialized population groups.",
+        },
+      ].map((service, index) => (
+        <Reveal key={service.title} direction="up" delay={index * 0.05}>
+          <div className="h-full rounded-3xl bg-white p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl">
+            <h3 className="text-2xl font-bold text-emerald-700">
+              {service.title}
+            </h3>
+
+            <p className="mt-4 leading-7 text-slate-600">
+              {service.description}
             </p>
-
-            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
-              Preventive wellness programs for individuals, organizations, and
-              communities.
-            </h2>
-          </Reveal>
-
-          <div className="mt-14 grid gap-6 md:grid-cols-2">
-            {[
-              "Corporate Wellness Programs",
-              "Wellness Assessment Programs",
-              "Health Education & Seminars",
-              "Community & Specialized Programs",
-            ].map((service, index) => (
-              <Reveal key={service} direction="up" delay={index * 0.05}>
-                <div className="h-full rounded-3xl bg-white p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl">
-                  <h3 className="text-2xl font-bold text-emerald-700">
-                    {service}
-                  </h3>
-                  <p className="mt-4 leading-7 text-slate-600">
-                    Practical, science-based wellness support designed to improve
-                    awareness, reduce health risks, and encourage healthier daily
-                    habits.
-                  </p>
-                </div>
-              </Reveal>
-            ))}
           </div>
-        </div>
-      </section>
+        </Reveal>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CLEAN GALLERY */}
       <section className="px-6 py-24 md:px-10">
@@ -302,42 +323,33 @@ export default function Home() {
             <p className="mt-6 text-lg leading-8 text-slate-700">
               Consultant public health specialist, health researcher, and educator
               dedicated to holistic lifestyle medicine. His work promotes
-              evidence-based lifestyle interventions to prevent and manage
+              evidence based lifestyle interventions to prevent and manage
               non-communicable diseases (NCDs).
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* QR ASSESSMENT */}
-      <section id="assessment" className="px-6 py-24 md:px-10">
-        <Reveal direction="up">
-          <div className="mx-auto grid max-w-7xl items-center gap-12 rounded-[2rem] border border-emerald-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-xl md:grid-cols-2 md:p-12">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-                Self-assessment
-              </p>
+      <div className="flex h-[260px] items-center justify-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white p-8 shadow-sm">
+  <div className="text-center">
+    <div className="mb-4 text-5xl">🩺</div>
 
-              <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
-                Start with a simple wellness check.
-              </h2>
+    <h3 className="text-xl font-bold text-slate-900">
+      Wellness Assessment
+    </h3>
 
-              <p className="mt-6 text-lg leading-8 text-slate-700">
-                Scan the QR code to access the self-assessment questionnaire and
-                take the first step toward understanding your wellness needs.
-              </p>
-            </div>
+    <p className="mt-3 text-slate-600">
+      Personalized assessment tool coming soon.
+    </p>
 
-            <div className="flex justify-center">
-              <img
-                src="/images/qr-code.jpg"
-                alt="Shalla Wellness self-assessment QR code"
-                className="w-full max-w-xs rounded-3xl border border-emerald-100 bg-white p-4 shadow-md transition-all duration-500 hover:scale-105"
-              />
-            </div>
-          </div>
-        </Reveal>
-      </section>
+    <a
+      href="/contact"
+      className="mt-6 inline-block rounded-full bg-emerald-700 px-6 py-3 text-white transition hover:bg-emerald-800"
+    >
+      Contact Us
+    </a>
+  </div>
+</div>
 
       {/* CTA */}
       <section className="bg-emerald-800 px-6 py-20 text-white md:px-10">
