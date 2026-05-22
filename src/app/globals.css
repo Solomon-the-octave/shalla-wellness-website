@@ -126,3 +126,92 @@ body {
 .dark .relative.z-10 .text-emerald-700 {
   color: #047857 !important;
 }
+
+/* ================= MOBILE FIXES ================= */
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  h1 {
+    font-size: 2.7rem !important;
+    line-height: 1.1 !important;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+    line-height: 1.15 !important;
+  }
+
+  h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.2 !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+    line-height: 1.8 !important;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .rounded-3xl,
+  .rounded-\[2rem\] {
+    border-radius: 1.5rem !important;
+  }
+
+  .p-8,
+  .p-10 {
+    padding: 1.5rem !important;
+  }
+
+  .py-24 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .gap-12 {
+    gap: 2rem !important;
+  }
+
+  .min-h-screen {
+    min-height: auto !important;
+  }
+
+  .h-\[420px\],
+  .h-\[480px\],
+  .h-\[520px\] {
+    height: auto !important;
+    max-height: 400px;
+  }
+
+  button,
+  a {
+    font-size: 0.95rem !important;
+  }
+
+  header img {
+    max-width: 110px !important;
+  }
+
+  header nav {
+    padding: 15px !important;
+  }
+
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}

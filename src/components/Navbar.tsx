@@ -80,14 +80,12 @@ const toggleDarkMode = () => {
           </Link>
         </div>
 
-           <button
+       <button
   onClick={toggleDarkMode}
-  className="flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-sm font-semibold text-emerald-800 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-50 hover:shadow-md"
+  className="rounded-full border border-emerald-200 bg-white px-6 py-2.5 text-sm font-semibold text-emerald-800 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-emerald-50 hover:shadow-md"
 >
-  <span>{darkMode ? "☀️" : "🌙"}</span>
-  <span>{darkMode ? "Light" : "Dark"}</span>
+  {darkMode ? "Light Mode" : "Dark Mode"}
 </button>
-
 
         {/* MOBILE BUTTON */}
         <button
