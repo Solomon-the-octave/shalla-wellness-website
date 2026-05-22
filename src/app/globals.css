@@ -215,3 +215,19 @@ body {
     grid-template-columns: 1fr !important;
   }
 }
+@media (max-width: 640px) {
+  header button {
+    color: #065f46 !important;
+    background: #ffffff !important;
+  }
+
+  .dark header button {
+    color: #065f46 !important;
+    background: #ffffff !important;
+    border-color: #a7f3d0 !important;
+  }
+
+  .dark header button span {
+    color: #065f46 !important;
+  }
+}
