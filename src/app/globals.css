@@ -231,3 +231,20 @@ body {
     color: #065f46 !important;
   }
 }
+header button {
+  color: #065f46 !important;
+  background: #ffffff !important;
+}
+
+header button span {
+  color: #065f46 !important;
+}
+
+.dark header button {
+  color: #065f46 !important;
+  background: #ffffff !important;
+}
+
+.dark header button span {
+  color: #065f46 !important;
+}
