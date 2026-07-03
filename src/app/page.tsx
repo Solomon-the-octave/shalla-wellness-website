@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 import Reveal from "@/components/Reveal";
 
 const heroImages = [
-  "/images/office/DSC02244.jpg",     // entrance / environment
-  "/images/gallery/DSC02445.jpg",    // smiling reception interaction
-  "/images/hero/DSC02378.jpg",       // consultation image
-  "/images/office/DSC02254.jpg",     // office space
-  "/images/gallery/DSC02590.jpg",    // wellness interaction
+  "/images/office/DSC02244.jpg",
+  "/images/gallery/DSC02445.jpg",
+  "/images/hero/DSC02378.jpg",
+  "/images/office/DSC02254.jpg",
+  "/images/gallery/DSC02590.jpg",
 ];
 
 const galleryImages = [
@@ -19,18 +19,15 @@ const galleryImages = [
 
 const partnerLogos = [
   { name: "BBRF", image: "/images/partners/bbrf.png" },
-  { name: "BGI Ethiopia", image: "/images/partners/bgi.jpg" },
   { name: "Haros Fitness", image: "/images/partners/haros.png" },
   { name: "Puratos Ethiopia", image: "/images/partners/puratos.png" },
-  { name: "Ethio-Istanbul Hospital", image: "/images/partners/ethio-istanbul.png" },
-  { name: "World Food Programme", image: "/images/partners/wfp.png" },
-
-  // New partner
-  { 
-    name: "DOC Medical Center", 
-    image: "/images/partners/doc.png" 
+  {
+    name: "Ethio-Istanbul Hospital",
+    image: "/images/partners/ethio-istanbul.png",
   },
+  { name: "DOC Medical Center", image: "/images/partners/doc.png" },
 ];
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -113,10 +110,10 @@ export default function Home() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-700">
-              Shalla Wellness Center follows a preventive and root-cause approach
-              to health. We focus on early detection of risk factors for
-              non-communicable diseases, practical lifestyle change, and long-term
-              wellness support.
+              Shalla Wellness Center follows a preventive and root-cause
+              approach to health. We focus on early detection of risk factors for
+              non-communicable diseases, practical lifestyle change, and
+              long-term wellness support.
             </p>
           </Reveal>
 
@@ -148,11 +145,26 @@ export default function Home() {
           <div className="mt-14 grid gap-6 md:grid-cols-3">
             {[
               ["Evidence-Based Programs", "Science-backed wellness solutions."],
-              ["Preventive Health Approach", "Helping prevent and reverse the risk factors for chronic diseases."],
-              ["Personalized Guidance", "Support tailored to individual, workplace, and community needs."],
-              ["Professional Expertise", "Led by experienced public health and wellness specialists."],
-              ["Culturally Adapted", "Rooted in African lifestyle, food culture, and daily realities."],
-              ["Metabolic Focus", "Specialized support for lifestyle-related health conditions."],
+              [
+                "Preventive Health Approach",
+                "Helping prevent and reverse the risk factors for chronic diseases.",
+              ],
+              [
+                "Personalized Guidance",
+                "Support tailored to individual, workplace, and community needs.",
+              ],
+              [
+                "Professional Expertise",
+                "Led by experienced public health and wellness specialists.",
+              ],
+              [
+                "Culturally Adapted",
+                "Rooted in African lifestyle, food culture, and daily realities.",
+              ],
+              [
+                "Metabolic Focus",
+                "Specialized support for lifestyle-related health conditions.",
+              ],
             ].map(([title, text], index) => (
               <Reveal key={title} direction="up" delay={index * 0.04}>
                 <div className="h-full rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl">
@@ -168,57 +180,57 @@ export default function Home() {
       </section>
 
       {/* SERVICES PREVIEW */}
-<section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
-  <div className="mx-auto max-w-7xl">
-    <Reveal direction="up" className="max-w-3xl">
-      <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-        Programs
-      </p>
-
-      <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
-        Preventive wellness programs for individuals, organizations, and
-        communities.
-      </h2>
-    </Reveal>
-
-    <div className="mx-auto mt-14 grid max-w-7xl gap-6 md:grid-cols-2">
-      {[
-        {
-          title: "Corporate Wellness Programs",
-          description:
-            "Workplace wellness initiatives focused on improving employee health, productivity, stress management, and long-term wellbeing.",
-        },
-        {
-          title: "Wellness Assessment Programs",
-          description:
-            "Comprehensive health screenings and evaluations designed to identify risks and support healthier lifestyle choices.",
-        },
-        {
-          title: "Health Education & Seminars",
-          description:
-            "Interactive health education sessions that build awareness around nutrition, prevention, and sustainable healthy living.",
-        },
-        {
-          title: "Community & Specialized Programs",
-          description:
-            "Tailored wellness initiatives designed to support communities, organizations, and specialized population groups.",
-        },
-      ].map((service, index) => (
-        <Reveal key={service.title} direction="up" delay={index * 0.05}>
-          <div className="h-full rounded-3xl bg-white p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl">
-            <h3 className="text-2xl font-bold text-emerald-700">
-              {service.title}
-            </h3>
-
-            <p className="mt-4 leading-7 text-slate-600">
-              {service.description}
+      <section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
+        <div className="mx-auto max-w-7xl">
+          <Reveal direction="up" className="max-w-3xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
+              Programs
             </p>
+
+            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+              Preventive wellness programs for individuals, organizations, and
+              communities.
+            </h2>
+          </Reveal>
+
+          <div className="mx-auto mt-14 grid max-w-7xl gap-6 md:grid-cols-2">
+            {[
+              {
+                title: "Corporate Wellness Programs",
+                description:
+                  "Workplace wellness initiatives focused on improving employee health, productivity, stress management, and long-term wellbeing.",
+              },
+              {
+                title: "Wellness Assessment Programs",
+                description:
+                  "Comprehensive health screenings and evaluations designed to identify risks and support healthier lifestyle choices.",
+              },
+              {
+                title: "Health Education & Seminars",
+                description:
+                  "Interactive health education sessions that build awareness around nutrition, prevention, and sustainable healthy living.",
+              },
+              {
+                title: "Community & Specialized Programs",
+                description:
+                  "Tailored wellness initiatives designed to support communities, organizations, and specialized population groups.",
+              },
+            ].map((service, index) => (
+              <Reveal key={service.title} direction="up" delay={index * 0.05}>
+                <div className="h-full rounded-3xl bg-white p-8 shadow-sm transition-all duration-500 ease-out hover:-translate-y-3 hover:shadow-2xl">
+                  <h3 className="text-2xl font-bold text-emerald-700">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-4 leading-7 text-slate-600">
+                    {service.description}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-      ))}
-    </div>
-  </div>
-</section>
+        </div>
+      </section>
 
       {/* CLEAN GALLERY */}
       <section className="px-6 py-24 md:px-10">
@@ -267,8 +279,9 @@ export default function Home() {
             </h2>
 
             <p className="mt-5 text-lg leading-8 text-slate-600">
-              Shalla Wellness Center has worked with trusted organizations across
-              health, wellness, food, humanitarian, and community-focused sectors.
+              Shalla Wellness Center has worked with trusted organizations
+              across health, wellness, food, fitness, and community-focused
+              sectors.
             </p>
           </Reveal>
 
@@ -321,35 +334,40 @@ export default function Home() {
             </p>
 
             <p className="mt-6 text-lg leading-8 text-slate-700">
-              Consultant public health specialist, health researcher, and educator
-              dedicated to holistic lifestyle medicine. His work promotes
-              evidence based lifestyle interventions to prevent and manage
-              non-communicable diseases (NCDs).
+              Consultant public health specialist, health researcher, and
+              educator dedicated to holistic lifestyle medicine. His work
+              promotes evidence-based lifestyle interventions to prevent and
+              manage non-communicable diseases.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <div className="flex h-[260px] items-center justify-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white p-8 shadow-sm">
-  <div className="text-center">
-    <div className="mb-4 text-5xl">🩺</div>
+      {/* ASSESSMENT */}
+      <section id="assessment" className="px-6 py-24 md:px-10">
+        <div className="mx-auto max-w-4xl">
+          <div className="flex h-[260px] items-center justify-center rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white p-8 shadow-sm">
+            <div className="text-center">
+              <div className="mb-4 text-5xl">🩺</div>
 
-    <h3 className="text-xl font-bold text-slate-900">
-      Wellness Assessment
-    </h3>
+              <h3 className="text-xl font-bold text-slate-900">
+                Wellness Assessment
+              </h3>
 
-    <p className="mt-3 text-slate-600">
-      Personalized assessment tool coming soon.
-    </p>
+              <p className="mt-3 text-slate-600">
+                Personalized assessment tool coming soon.
+              </p>
 
-    <a
-      href="/contact"
-      className="mt-6 inline-block rounded-full bg-emerald-700 px-6 py-3 text-white transition hover:bg-emerald-800"
-    >
-      Contact Us
-    </a>
-  </div>
-</div>
+              <a
+                href="/contact"
+                className="mt-6 inline-block rounded-full bg-emerald-700 px-6 py-3 text-white transition hover:bg-emerald-800"
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="bg-emerald-800 px-6 py-20 text-white md:px-10">

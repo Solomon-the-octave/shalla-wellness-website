@@ -9,11 +9,6 @@ const partners = [
     fullName: "Bleu Blanc Rouge Foundation",
   },
   {
-    src: "/images/partners/bgi.jpg",
-    name: "BGI Ethiopia",
-    fullName: "BGI Ethiopia",
-  },
-  {
     src: "/images/partners/haros.png",
     name: "Haros Fitness",
     fullName: "Haros Fitness and Wellness Center",
@@ -27,11 +22,6 @@ const partners = [
     src: "/images/partners/ethio-istanbul.png",
     name: "Ethio-Istanbul Hospital",
     fullName: "Ethio-Istanbul General Hospital",
-  },
-  {
-    src: "/images/partners/wfp.png",
-    name: "WFP",
-    fullName: "World Food Programme",
   },
 ];
 
@@ -50,11 +40,11 @@ export default function PartnersSection() {
 
           <p className="mt-5 text-lg leading-8 text-slate-600">
             Shalla Wellness Center has collaborated with organizations across
-            health, wellness, food, humanitarian, and community-focused sectors.
+            health, wellness, food, fitness, and community-focused sectors.
           </p>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {partners.map((partner, index) => (
             <Reveal key={partner.name} direction="up" delay={index * 0.04}>
               <div className="flex h-full items-center gap-5 rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl">
