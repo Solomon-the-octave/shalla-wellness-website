@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import Reveal from "@/components/Reveal";
+import SectionIntro from "@/components/SectionIntro";
+import Breadcrumb from "@/components/Breadcrumb";
+import { ArrowRight, Check } from "@/components/Icons";
 
-export default function ServicesPage() {
-  const services = [
+export const metadata: Metadata = {
+  title: "Services",
+  description:
+    "Corporate wellness, wellness assessments, health education and community programs focused on prevention, early detection, nutritional therapy and disease reversal.",
+};
+
+const services = [
   {
     title: "Corporate Wellness Programs",
     description:
@@ -12,9 +23,9 @@ export default function ServicesPage() {
       "Lifestyle risk evaluation",
       "Workplace wellness education",
       "Stress prevention programs",
-      "Nutrition and lifestyle guidance.",
+      "Nutrition and lifestyle guidance",
     ],
-     image: "/images/hero/DSC02716.jpg",
+    image: "/images/hero/DSC02716.jpg",
   },
   {
     title: "Wellness Assessment Programs",
@@ -28,7 +39,7 @@ export default function ServicesPage() {
       "Lifestyle evaluation",
       "Personalized recommendations",
     ],
-    image: "/images/gallery/DSC02445.jpg"
+    image: "/images/gallery/DSC02445.jpg",
   },
   {
     title: "Health Education & Seminars",
@@ -40,7 +51,7 @@ export default function ServicesPage() {
       "Women’s health and hormonal wellness",
       "Healthy pregnancy and maternal wellness",
       "Gut health and immune support",
-      "Stress management and men’s Health",
+      "Stress management and men’s health",
     ],
     image: "/images/hero/DSC02378.jpg",
   },
@@ -60,101 +71,105 @@ export default function ServicesPage() {
   },
 ];
 
+export default function ServicesPage() {
   return (
-    <main className="bg-white text-slate-800">
-      <section className="px-6 py-24 text-center md:px-10 md:py-28">
-        <div className="mx-auto max-w-4xl">
-          <Reveal direction="up">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              Our Services
-            </p>
+    <div className="bg-surface text-body">
+      {/* HEADER */}
+      <section className="page-band px-5 pb-14 pt-12 sm:px-6 md:px-10 md:pb-20 md:pt-24">
+        <Breadcrumb current="Services" center />
+        <SectionIntro
+          center
+          as="h1"
+          eyebrow="Our Services"
+          title="Preventive wellness programs built for real life."
+          text="Shalla Wellness Center offers science-based, culturally adapted programs focused on prevention, early detection, nutritional therapy and disease reversal."
+          className="max-w-4xl"
+        />
 
-            <h1 className="text-4xl font-bold text-slate-900 md:text-6xl">
-              Preventive wellness programs built for real life.
-            </h1>
-
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              Shalla Wellness Center offers science-based, culturally adapted
-              programs focused on prevention, early detection, nutritional
-              therapy and disease reversal.
-            </p>
-          </Reveal>
-        </div>
+        {/* Quick jump chips */}
+        <Reveal direction="up" delay={0.15}>
+          <div className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-2 sm:gap-3">
+            {services.map((s, i) => (
+              <a
+                key={s.title}
+                href={`#service-${i + 1}`}
+                className="rounded-full border border-line bg-card px-4 py-2 text-sm font-medium text-ink transition hover:border-accent hover:text-brand"
+              >
+                {s.title}
+              </a>
+            ))}
+          </div>
+        </Reveal>
       </section>
 
-      <section className="px-6 pb-24 md:px-10">
-        <div className="mx-auto max-w-7xl space-y-16">
+      {/* SERVICES */}
+      <section className="px-5 pb-20 pt-4 sm:px-6 md:px-10 md:pb-28">
+        <div className="mx-auto max-w-7xl space-y-8 md:space-y-14">
           {services.map((service, index) => (
             <Reveal key={service.title} direction="up">
-              <div
-                className={`grid items-center gap-10 rounded-[2rem] border border-emerald-100 bg-white p-6 shadow-sm md:grid-cols-2 md:p-8 ${
-                  index % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
-                }`}
+              <article
+                id={`service-${index + 1}`}
+                className="card grid items-center gap-6 p-4 sm:p-6 md:grid-cols-2 md:gap-12 md:p-8"
               >
-                <div className="overflow-hidden rounded-[1.5rem]">
-                  <img
+                <div className={`photo h-60 sm:h-80 md:h-[400px] ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                  <Image
                     src={service.image}
                     alt={service.title}
-                    className="h-[360px] w-full object-cover transition duration-700 hover:scale-105"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
                   />
                 </div>
 
-                <div>
-                  <h2 className="text-3xl font-bold text-slate-900">
+                <div className="px-2 pb-2 sm:px-0 sm:pb-0">
+                  <span className="font-serif text-sm font-semibold text-accent">
+                    0{index + 1}
+                  </span>
+                  <h2 className="mt-2 font-serif text-[1.7rem] font-semibold leading-tight text-ink sm:text-3xl md:text-4xl">
                     {service.title}
                   </h2>
+                  <p className="mt-4 text-base leading-8 sm:text-lg">{service.description}</p>
 
-                  <p className="mt-5 text-lg leading-8 text-slate-600">
-                    {service.description}
-                  </p>
-
-                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                  <ul className="mt-6 grid gap-2.5 sm:grid-cols-2 sm:gap-3">
                     {service.points.map((point) => (
-                      <div
+                      <li
                         key={point}
-                        className="rounded-2xl bg-[#f4fbf7] px-4 py-3 text-sm font-medium text-slate-700"
+                        className="flex items-start gap-2.5 rounded-2xl bg-soft px-4 py-3 text-sm font-medium text-ink"
                       >
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand" />
                         {point}
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="bg-[#f4fbf7] px-6 py-24 text-center md:px-10">
+      {/* CTA */}
+      <section className="bg-soft px-5 py-20 text-center sm:px-6 md:px-10 md:py-28">
         <div className="mx-auto max-w-4xl">
           <Reveal direction="up">
-            <h2 className="text-3xl font-bold text-slate-900 md:text-5xl">
+            <h2 className="font-serif text-[1.9rem] font-semibold leading-tight text-ink sm:text-4xl md:text-5xl">
               Not sure where to begin?
             </h2>
-
-            <p className="mt-5 text-lg leading-8 text-slate-600">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-8 sm:text-lg">
               Start with the self-assessment questionnaire or contact the Shalla
               Wellness team for guidance on the right program for your needs.
             </p>
-
-            <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
-              <a
-                href="/#assessment"
-                className="rounded-full bg-emerald-700 px-7 py-3 font-medium text-white transition hover:bg-emerald-800"
-              >
-                Start Assessment
-              </a>
-
-              <a
-                href="/contact"
-                className="rounded-full border border-emerald-700 px-7 py-3 font-medium text-emerald-700 transition hover:bg-emerald-50"
-              >
+            <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
+              <Link href="/#assessment" className="btn btn-primary">
+                Start Assessment <ArrowRight />
+              </Link>
+              <Link href="/contact" className="btn btn-outline">
                 Contact Us
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

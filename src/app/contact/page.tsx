@@ -1,81 +1,94 @@
-"use client";
-
+import type { Metadata } from "next";
+import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
+import SectionIntro from "@/components/SectionIntro";
+import Breadcrumb from "@/components/Breadcrumb";
+import { ArrowRight, Mail, MapPin, Phone, Send } from "@/components/Icons";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description:
+    "Visit Shalla Wellness Center at Platinum Plaza, Bole, Addis Ababa, or reach the team by email, phone or Telegram.",
+};
 
 export default function ContactPage() {
   return (
-    <main className="bg-white text-slate-800">
-      <section className="px-6 py-24 text-center md:px-10 md:py-28">
-        <div className="mx-auto max-w-3xl">
-          <Reveal direction="up">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-emerald-700">
-              Contact Shalla Wellness
-            </p>
-
-            <h1 className="text-4xl font-bold text-slate-900 md:text-6xl">
-              Visit our office or connect with our team directly.
-            </h1>
-
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              For appointments, partnerships, and general inquiries, you can
-              contact us by email, phone, Telegram, or visit our office location.
-            </p>
-          </Reveal>
-        </div>
+    <div className="bg-surface text-body">
+      {/* HEADER */}
+      <section className="page-band px-5 pb-14 pt-12 sm:px-6 md:px-10 md:pb-20 md:pt-24">
+        <Breadcrumb current="Contact" center />
+        <SectionIntro
+          center
+          as="h1"
+          eyebrow="Contact Shalla Wellness"
+          title="Visit our office or connect with our team directly."
+          text="For appointments, partnerships, and general inquiries, you can contact us by email, phone, Telegram, or visit our office location."
+        />
       </section>
 
-      <section className="px-6 pb-24 md:px-10">
-        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2">
+      {/* OFFICE + MAP */}
+      <section className="px-5 pb-20 sm:px-6 md:px-10 md:pb-28">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2 lg:gap-8">
           <Reveal direction="left">
-            <div className="h-full rounded-[2rem] border border-emerald-100 bg-[#f4fbf7] p-8 shadow-sm">
-              <h2 className="text-3xl font-bold text-emerald-700">
+            <div className="h-full rounded-[2rem] border border-line bg-soft p-6 sm:p-8">
+              <h2 className="font-serif text-2xl font-semibold text-brand sm:text-3xl">
                 Office Information
               </h2>
 
-              <div className="mt-8 space-y-6 text-slate-700">
-                <div>
-                  <p className="font-semibold text-slate-900">Address</p>
-                  <p className="mt-1 leading-7">
-                    Bole, Atlas, Platinum Plaza, 5th floor, House no. 386
-                  </p>
+              <div className="mt-7 space-y-3">
+                <div className="action-chip">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-soft text-brand ring-1 ring-line">
+                    <MapPin />
+                  </span>
+                  <span>
+                    <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-muted">Address</span>
+                    <span className="mt-0.5 block font-medium leading-6 text-ink">{site.address}</span>
+                  </span>
                 </div>
 
-                <div>
-                  <p className="font-semibold text-slate-900">Email</p>
-                  <p className="mt-1">Shallawell7@gmail.com</p>
-                </div>
+                <a href={`mailto:${site.email}`} className="action-chip">
+                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-soft text-brand ring-1 ring-line">
+                    <Mail />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-muted">Email</span>
+                    <span className="mt-0.5 block break-all font-medium text-ink">{site.email}</span>
+                  </span>
+                </a>
 
-                <div>
-                  <p className="font-semibold text-slate-900">Phone</p>
-                  <p className="mt-1">+251 920 244 516 / +251 988 035 023</p>
+                <div className="grid gap-3 sm:grid-cols-2">
+                  {site.phones.map((p) => (
+                    <a key={p.href} href={p.href} className="action-chip">
+                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-soft text-brand ring-1 ring-line">
+                        <Phone />
+                      </span>
+                      <span>
+                        <span className="block text-xs font-semibold uppercase tracking-[0.15em] text-muted">Phone</span>
+                        <span className="mt-0.5 block whitespace-nowrap font-medium text-ink">{p.label}</span>
+                      </span>
+                    </a>
+                  ))}
                 </div>
               </div>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <a
-                  href="mailto:Shallawell7@gmail.com"
-                  className="rounded-full bg-emerald-700 px-6 py-3 text-center font-medium text-white transition hover:bg-emerald-800"
-                >
-                  Email Us
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href={`mailto:${site.email}`} className="btn btn-primary">
+                  Email Us <ArrowRight />
                 </a>
-
-                <a
-                  href="https://t.me/Shallawell"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full border border-emerald-700 px-6 py-3 text-center font-medium text-emerald-700 transition hover:bg-white"
-                >
-                  Reach Out on Telegram
+                <a href={site.telegram} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+                  <Send className="h-4 w-4" /> Reach Out on Telegram
                 </a>
               </div>
             </div>
           </Reveal>
 
           <Reveal direction="right">
-            <div className="rounded-[2rem] border border-emerald-100 bg-white p-4 shadow-sm">
+            <div className="h-full rounded-[2rem] border border-line bg-card p-3 sm:p-4">
               <iframe
-                src="https://maps.google.com/maps?q=9.000318,38.779938&ll=9.000318,38.779938&z=16&output=embed"
-                className="h-[520px] w-full rounded-[1.5rem] border-0"
+                title="Map to Shalla Wellness Center, Platinum Plaza, Bole, Addis Ababa"
+                src={site.map}
+                className="h-80 w-full rounded-[1.5rem] border-0 sm:h-[420px] lg:h-full lg:min-h-[520px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
@@ -84,77 +97,46 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-[#f4fbf7] px-6 py-24 md:px-10">
-        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2">
-          <Reveal direction="left">
-            <div className="rounded-[2rem] bg-white p-8 shadow-sm">
-              <h2 className="text-3xl font-bold text-slate-900">
+      {/* FORM + TELEGRAM */}
+      <section id="message" className="bg-soft px-5 py-20 sm:px-6 md:px-10 md:py-28">
+        <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-5 lg:gap-8">
+          <Reveal direction="left" className="md:col-span-3">
+            <div className="card h-full p-6 sm:p-10">
+              <h2 className="font-serif text-2xl font-semibold text-ink sm:text-3xl">
                 Send an email request
               </h2>
-
-              <p className="mt-4 leading-7 text-slate-600">
+              <p className="mt-3 leading-7">
                 Use this option for appointment questions, partnership inquiries,
                 or detailed messages.
               </p>
-
-              <form className="mt-8 space-y-4">
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="w-full rounded-xl border border-gray-200 p-4 outline-none transition focus:border-emerald-500"
-                />
-
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  className="w-full rounded-xl border border-gray-200 p-4 outline-none transition focus:border-emerald-500"
-                />
-
-                <textarea
-                  rows={5}
-                  placeholder="Write your message here"
-                  className="w-full rounded-xl border border-gray-200 p-4 outline-none transition focus:border-emerald-500"
-                />
-
-                <button
-                  type="submit"
-                  className="rounded-full bg-emerald-700 px-7 py-3 font-medium text-white transition hover:bg-emerald-800"
-                >
-                  Send Message
-                </button>
-              </form>
+              <ContactForm />
             </div>
           </Reveal>
 
-          <Reveal direction="right">
-            <div className="flex h-full flex-col justify-between rounded-[2rem] bg-emerald-800 p-8 text-white shadow-sm">
+          <Reveal direction="right" className="md:col-span-2">
+            <div className="relative isolate flex h-full flex-col justify-between overflow-hidden rounded-[2rem] bg-emerald-800 p-6 text-white sm:p-10">
+              <div aria-hidden className="absolute -right-20 -top-20 -z-10 h-64 w-64 rounded-full bg-lime-400/20 blur-3xl" />
               <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-100">
-                  Faster option
-                </p>
-
-                <h2 className="mt-4 text-3xl font-bold">
-                  Prefer direct chat?
-                </h2>
-
-                <p className="mt-4 leading-7 text-emerald-50">
+                <p className="section-label light">Faster option</p>
+                <h2 className="mt-4 font-serif text-2xl font-semibold sm:text-3xl">Prefer direct chat?</h2>
+                <p className="mt-4 leading-7 text-emerald-50/85">
                   Use Telegram if you want a faster, direct conversation with
                   the Shalla Wellness team.
                 </p>
               </div>
 
               <a
-                href="https://t.me/Shallawell"
+                href={site.telegram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-10 rounded-full bg-white px-7 py-3 text-center font-medium text-emerald-800 transition hover:bg-emerald-50"
+                className="btn btn-light mt-10"
               >
-                Open Telegram
+                <Send className="h-4 w-4" /> Open Telegram
               </a>
             </div>
           </Reveal>
         </div>
       </section>
-    </main>
+    </div>
   );
 }
