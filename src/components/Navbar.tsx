@@ -103,23 +103,25 @@ export default function Navbar() {
         }`}
         aria-label="Main"
       >
-        <Link href="/" className="flex items-center gap-4" aria-label={site.name}>
-          <span className="relative block h-12 w-24 overflow-hidden rounded-xl bg-white ring-1 ring-black/5 sm:h-14 sm:w-28">
-            <Image
-              src={site.logo}
-              alt=""
-              fill
-              priority
-              sizes="112px"
-              className="scale-[1.55] object-contain"
-            />
-          </span>
+        <Link
+          href="/"
+          className="flex items-center gap-3 sm:gap-4"
+          aria-label={site.name}
+        >
+          <Image
+            src={site.mark}
+            alt=""
+            width={399}
+            height={586}
+            priority
+            className="h-10 w-auto shrink-0 transition-[height] duration-500 sm:h-12"
+          />
 
-          <span className="hidden border-l border-line pl-4 sm:block">
-            <span className="block font-serif text-xl font-semibold leading-tight text-brand">
+          <span className="border-l border-line pl-3 sm:pl-4">
+            <span className="block font-serif text-lg font-semibold leading-tight text-brand sm:text-xl">
               Shalla Wellness
             </span>
-            <span className="block text-xs font-medium uppercase tracking-[0.18em] text-muted">
+            <span className="block text-[0.65rem] font-medium uppercase tracking-[0.18em] text-muted sm:text-xs">
               Preventive Health
             </span>
           </span>

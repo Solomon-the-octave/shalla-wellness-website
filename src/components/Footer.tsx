@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { navLinks, site } from "@/lib/site";
 import { Mail, MapPin, Phone, Send } from "./Icons";
@@ -12,7 +13,18 @@ export default function Footer() {
 
       <div className="relative mx-auto grid max-w-7xl gap-10 py-14 md:grid-cols-2 md:py-16 lg:grid-cols-4">
         <div className="lg:col-span-2">
-          <h3 className="font-serif text-2xl font-semibold">Shalla Wellness Center</h3>
+          <div className="flex items-center gap-4">
+            <Image
+              src={site.mark}
+              alt=""
+              width={399}
+              height={586}
+              className="h-14 w-auto shrink-0"
+            />
+            <h3 className="font-serif text-2xl font-semibold leading-tight">
+              Shalla Wellness Center
+            </h3>
+          </div>
           <p className="mt-4 max-w-md leading-7 text-emerald-50/70">
             Promoting preventive healthcare and metabolic wellness through
             science-based, culturally adapted solutions.

@@ -5,7 +5,9 @@ export const site = {
   name: "Shalla Wellness Center",
   description:
     "Preventive healthcare and metabolic wellness solutions for healthier, more productive lives.",
-  logo: "/images/logo/shalla-logo.jpg",
+  logo: "/images/logo/shalla-logo.png",
+  mark: "/images/logo/shalla-mark.png",
+  icon: "/images/logo/shalla-icon.png",
   address: "Bole, Atlas, Platinum Plaza, 5th floor, House no. 386",
   city: "Addis Ababa, Ethiopia",
   email: "Shallawell7@gmail.com",
